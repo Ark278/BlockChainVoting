@@ -1,0 +1,2 @@
+workload,success,fail,total_time_s,tps,avg_latency_ms
+10,0,10,2.11128306388855,4.73645631466491,211.12830638885498

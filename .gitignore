@@ -1,0 +1,45 @@
+# General OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python (backend)
+venv/
+.env/
+env/
+__pycache__/
+*.py[cod]
+backend/.venv/
+backend/.venv/*
+.venv/
+.venv/*
+
+# Rust contracts
+target/
+**/target/
+**/*.rs.bk
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.vite/
+
+# Local Blockchain Data & External Repos
+temp_wasmd_data/
+temp_wasmd_data/*
+liboqs/
+liboqs/*
+
+# Environment & Logs
+.env
+.system_generated/
+*.log
+
+# Virtual Environments (catch all)
+.venv/
+.venv/*
+*/.venv/
+*/.venv/*
+**/.venv/

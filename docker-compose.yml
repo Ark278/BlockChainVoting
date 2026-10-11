@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: voting_admin
+      POSTGRES_PASSWORD: securepassword
+      POSTGRES_DB: voting
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U voting_admin -d voting"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  wasmd:
+    image: cosmwasm/wasmd:v0.41.0
+    command: >
+      /bin/sh -c "
+      if [ ! -f /root/.wasmd/config/genesis.json ]; then
+        wasmd init localnet --chain-id testing && 
+        wasmd keys add validator --keyring-backend test && 
+        wasmd genesis add-genesis-account validator 100000000000000000stake --keyring-backend test && 
+        wasmd genesis gentx validator 100000000000000stake --chain-id testing --keyring-backend test && 
+        wasmd genesis collect-gentxs;
+      fi && 
+      wasmd start --rpc.laddr tcp://0.0.0.0:26657 --api.enable --api.address tcp://0.0.0.0:1317 --api.enabled-unsafe-cors
+      "
+    ports:
+      - "1317:1317"
+      - "26657:26657"
+    volumes:
+      - wasmd_data:/root/.wasmd
+
+volumes:
+  pgdata:
+  wasmd_data:

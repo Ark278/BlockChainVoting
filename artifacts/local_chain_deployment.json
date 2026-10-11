@@ -1,0 +1,12 @@
+{
+  "chain_id": "testing",
+  "rpc_url": "http://localhost:26657",
+  "rest_url": "http://localhost:1317",
+  "optimizer_image": "cosmwasm/optimizer:0.17.0",
+  "wasm_sha256": "76978034325fbbc03b57806d1c11c89873c652e3d2db3508431528abf5fb3fc0",
+  "wasm_size_bytes": 260616,
+  "code_id": "4",
+  "upload_tx_hash": "A1F8125F3DAF9D307D404E10F8C73F0DF4D8D4046CF38AB41A3F8B7010705ED2",
+  "instantiate_tx_hash": "AD6444ACEFA18BB60E33ED403E9CB658920B6BF9294F804A54BAF4149DB61BA7",
+  "contract_address": "wasm1ghd753shjuwexxywmgs4xz7x2q732vcnkm6h2pyv9s6ah3hylvrq8epk7w"
+}
